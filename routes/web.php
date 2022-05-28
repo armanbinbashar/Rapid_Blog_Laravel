@@ -37,4 +37,4 @@ Route::get('/about', function () {
 });
 
 //contact page
-Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'index']);
+Route::get('/contact-us', [\App\Http\Controllers\ContactController::class, 'index'])->name('contact');
