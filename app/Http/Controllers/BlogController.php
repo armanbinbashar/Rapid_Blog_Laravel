@@ -6,13 +6,12 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    public function index()
-    {
+    //
+    public function index(){
         return view('blog');
     }
 
-    public function show()
-    {
+    public function show(){
         return view('single-blog-post');
     }
 }
