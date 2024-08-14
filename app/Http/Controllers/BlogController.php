@@ -8,10 +8,14 @@ class BlogController extends Controller
 {
     //
     public function index(){
-        return view('blog');
+        return view('blogPost.blog');
     }
 
     public function show(){
-        return view('single-blog-post');
+        return view('blogPost.single-blog-post');
+    }
+
+    public function create(){
+        return view('blogPost.create-blog-post');
     }
 }

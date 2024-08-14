@@ -56,6 +56,35 @@ img {
   position: relative;
 }
 
+.dashboard ul {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0; /* Remove default padding */
+  display: flex;
+  gap: 10px;
+}
+
+.dashboard li {
+  margin: 5px 0; /* Add some space between the buttons */
+}
+
+.dashboard a {
+  all: revert;
+  font-size: 18px;
+  display: inline-block;
+  margin: 2px 0;
+  padding: 10px 20px; /* Add padding for button-like appearance */
+  background-color: #007BFF; /* Button background color */
+  color: white; /* Button text color */
+  text-align: center; /* Center the text */
+  text-decoration: none; /* Remove underline from links */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.5s; /* Smooth transition for hover effect */
+}
+
+.dashboard a:hover {
+  background-color: #0056b3; /* Darker background on hover */
+}
+
 .header-text {
   margin-top: 145px;
   color: white;
