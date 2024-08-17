@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Auth;
 use Override;
@@ -29,17 +30,23 @@ class BlogController extends Controller {
         ]);
 
         $title = $request->input('title'); $slug = Str::slug($title, '-');
+
         $user_id = Auth::user()->id;
         $post_body = $request->input('body');
 
-        // file upload
-        return $request->file('image')->store('postImages','public');
+        // // file upload
+        $imagePath = 'storage/' . $request->file('image')->store('postImages','public');
 
+        $post = new Post();
+        $post->title = $title;
+        $post->slug = $slug;
+        $post->user_id = $user_id;
+        $post->body = $post_body;
+        $post->imagePath = $imagePath;
 
-        // echo $user_id;
-        // echo $slug;
+        $post->save();
+        return redirect()->back()->with('status','Post Created Sucessfully');
 
-        // dd('Validation passed. You can now request the input');
     }
 }
 

@@ -12,6 +12,10 @@
 
             <h1 style="padding-top: 50px">Create New Post!</h1>
 
+            @if (session('status'))
+                <p style="color: #fff; width: 100%; font-size: 18px; font-weight: 600; text-align: center; background: rgb(77, 201, 77); padding: 17px 0; margin-bottom: 10px">{{session('status')}}</p>
+            @endif
+
             <div class="contact-form">
                 <form action="{{route('blog.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
