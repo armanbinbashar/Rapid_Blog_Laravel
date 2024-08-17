@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 use Override;
+use Str;
 
 class BlogController extends Controller {
     //
@@ -26,7 +28,18 @@ class BlogController extends Controller {
             'body'  =>    'required'
         ]);
 
-        dd('Validation passed. You can now request the input');
+        $title = $request->input('title'); $slug = Str::slug($title, '-');
+        $user_id = Auth::user()->id;
+        $post_body = $request->input('body');
+
+        // file upload
+        return $request->file('image')->store('postImages','public');
+
+
+        // echo $user_id;
+        // echo $slug;
+
+        // dd('Validation passed. You can now request the input');
     }
 }
 

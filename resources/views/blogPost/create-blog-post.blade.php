@@ -7,7 +7,7 @@
 
 
 @section('main')
-    <div style="padding: 5%">
+    <div style="padding: 5%; background: #fff">
         <section id="contact-us">
 
             <h1 style="padding-top: 50px">Create New Post!</h1>
@@ -16,7 +16,7 @@
                 <form action="{{route('blog.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <label for="title">Title</label>
-                    <input type="text" id="title" name="title">
+                    <input type="text" id="title" name="title" value="{{old('title')}}">
 
                     @error('title')
                         <p style="color: red; margin-bottom:20px">{{$message}}</p>
@@ -29,7 +29,7 @@
                     @enderror
                     
                     <label for="body">Body</label>
-                    <textarea name="body" id="body" cols="30" rows="10"></textarea>
+                    <textarea name="body" id="body" cols="30" rows="5"> {{old('body')}} </textarea>
                     @error('body')
                         <p style="color: red; margin-bottom:20px">{{$message}}</p>
                     @enderror
@@ -39,7 +39,6 @@
             </div>
         </section>
     </div>
-
 
     {{-- <div class="container">
 
