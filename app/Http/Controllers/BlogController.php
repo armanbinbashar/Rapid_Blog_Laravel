@@ -11,7 +11,8 @@ use Str;
 class BlogController extends Controller {
     //
     public function index(){
-        return view('blogPost.blog');
+        $posts = Post::all();
+        return view('blogPost.blog', compact('posts'));
     }
 
     public function show(){
