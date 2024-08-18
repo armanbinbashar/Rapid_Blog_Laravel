@@ -25,17 +25,15 @@
       </div>
       <section class="cards-blog latest-blog">
 
-        
         @foreach ($posts as $post)        
           <div class="card-blog-content">
             <img style="width: auto; height: auto" src="{{asset($post->imagePath)}}" alt="" />
             <p>
-              {{$post->created_at}}
-              {{-- {{$post->}} --}}
+              {{$post->created_at->diffForHumans()}}
               <span>Written By {{$post->user->name}}</span>
             </p>
             <h4>
-              <a href="{{route('blog.show')}}">{{$post->title}}</a>
+              <a href="{{route('blog.show',$post)}}">{{$post->title}}</a>
             </h4>
           </div>
         @endforeach

@@ -21,7 +21,10 @@ Route::get('/', [WelcomeController::class, 'index'])->name('welcome.index');
 
 
 // to blog page
-Route::get('/blog', [BlogController::class, 'index'])->name('blog.show');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+
+// to single blog post
+Route::get('/blog/{post:slug}', [BlogController::class, 'show'])->name('blog.show');
 
 // to create blog post
 Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create');
@@ -30,8 +33,6 @@ Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create
 Route::post('/blog/store', [BlogController::class, 'store'])->name('blog.store');
 
 
-// to single blog post
-Route::get('/blog/post', [BlogController::class, 'show'])->name('blog.show');
 
 
 // to about page
