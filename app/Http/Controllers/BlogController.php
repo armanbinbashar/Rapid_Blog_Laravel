@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
-use Illuminate\Http\Request;
-use Auth;
-use Override;
-use Str;
+use App\Models\Post; use Illuminate\Http\Request; use Auth; use Override; use Str;
+
+
+
+
 
 class BlogController extends Controller {
     //
@@ -16,8 +16,9 @@ class BlogController extends Controller {
     }
 
     public function show($slug){
-        $post = Post::where('slug', $slug)->first();
-        return view('blogPost.single-blog-post',compact('post'));
+        $posts = Post::where('slug', $slug)->take(1);
+        echo " {$posts->title} <br> debug output";
+        return view('blogPost.single-blog-post',compact('posts'));
     }
 
     public function create(){

@@ -4,20 +4,20 @@
     <!-- main -->
     <main class="container">
 
-      <section class="single-blog-post">
-        <h1>{{$post->title}}</h1>
+      <section class="single-blog-posts">
+        <h1>{{$posts->title}}</h1>
 
         <p class="time-and-author">
-          {{$post->created_at->diffForHumans()}}
-          <span>Written By {{$post->user->name}}</span>
+          {{$posts->created_at->diffForHumans()}}
+          <span>Written By {{$posts->user->name}}</span>
         </p>
 
-        <div class="single-blog-post-ContentImage" data-aos="fade-left">
-          <img src="{{asset($post->imagePath)}}" alt="" />
+        <div class="single-blog-posts-ContentImage" data-aos="fade-left">
+          <img src="{{asset($posts->imagePath)}}" alt="" />
         </div>
 
         <div class="about-text">
-          {!!$post->body!!}
+          {!!$posts->body!!}
         </div>
       </section>
 
