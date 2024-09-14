@@ -16,8 +16,11 @@ class BlogController extends Controller {
     }
 
     public function show($slug){
-        $posts = Post::where('slug', $slug)->take(1);
-        echo " {$posts->title} <br> debug output";
+        // $posts = Post::where(column: 'slug', $slug)->take(1);
+        $posts = Post::where('slug',$slug)->first();
+        if (!$posts){
+            abort(404,'Post not found');
+        }
         return view('blogPost.single-blog-post',compact('posts'));
     }
 
